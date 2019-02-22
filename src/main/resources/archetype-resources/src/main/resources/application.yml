@@ -1,4 +1,6 @@
 spring:
+  config:
+    name: application
   jackson:
     default-property-inclusion: non_null
   jpa:
@@ -17,11 +19,21 @@ spring:
 
 dataBaseUrl: ./h2/alerts_db;DB_CLOSE_ON_EXIT=FALSE
 
-
+# The following properties, initialDelay and fixedDelay are used in the example class, ScheduledServiceAction
 initialDelay: 10000
 fixedDelay: 60000
 
+#Remove this password from here and pass it from command line -Djasypt.encryptor.password=password
+#How to generate those encrpyted values? 
+## We will use Jasypt for that! Go to http://www.jasypt.org/ and download the latest version. 
+## When you are done, go into jasypt\bin and use the encrypt.sh or encrypt.bat to encrypt your variables. 
+## There are several algorithms to pick but I will leave it as default and only give my property value and secret to encrpyt it.
+jasypt:
+  encryptor:
+    password: password
+
 server:
+  port: 8080
   tomcat:
     accessLog.enabled: true
     basedir: "${LOG_PATH}/Application"

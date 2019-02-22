@@ -25,6 +25,7 @@
         <integration-tests.skip>false</integration-tests.skip>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+        <spring.jasypt.version>2.1.0</spring.jasypt.version>
         <project.artifact.name>${project.artifactId}</project.artifact.name>
         <build.number>LOCAL</build.number>
         <unit-tests.skip>false</unit-tests.skip>
@@ -98,6 +99,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+		<dependency>
+		    <groupId>com.github.ulisesbocchio</groupId>
+		    <artifactId>jasypt-spring-boot-starter</artifactId>
+		    <version>${spring.jasypt.version}</version>
+		</dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

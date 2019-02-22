@@ -1,15 +1,34 @@
-spring:
 # change the application name for your project name , this name is reserved for the maven archetype code generation
-  application:
-    name: Application
+
+#spring:
+#  application:
+#    name: application
 
 ---
 # DO NOT FORGET TO ADD YOUR YAML CONFIG FILE IN config server as shown below
-spring:
-  cloud:
-    config:
-      failFast: true
-      server:
-        bootstrap: true
-        git:
-          uri: https://github.com/Romeh/config.git
+
+#spring:
+#  cloud:
+#    config:
+#      failFast: true
+#      server:
+#        bootstrap: true
+#        git:
+#          uri: https://github.com/Romeh/config.git
+
+
+#The default strategy for locating property sources is to clone a git repository 
+#(at spring.cloud.config.server.git.uri) and use it to initialize a mini SpringApplication. 
+#The mini-application’s Environment is used to enumerate property sources and publish them via a JSON endpoint.
+#
+#The HTTP service has resources in the form:
+#
+###/{application}/{profile}[/{label}]
+###/{application}-{profile}.yml
+###/{label}/{application}-{profile}.yml
+###/{application}-{profile}.properties
+###/{label}/{application}-{profile}.properties
+#
+#where the "application" is injected as the spring.config.name in the SpringApplication (i.e. what is normally "application" in a regular Spring Boot app), 
+#"profile" is an active profile (or comma-separated list of properties), 
+#and "label" is an optional git label (defaults to "master".)
